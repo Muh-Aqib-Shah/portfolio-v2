@@ -156,89 +156,139 @@ export default function PortfolioV3() {
       </nav>
 
       {/* --- HERO --- */}
-      <section className="relative pt-32 pb-12 px-6 max-w-7xl mx-auto min-h-[85vh] flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
-            <RotatingTitle />
-            <p className="text-lg text-slate-400 max-w-lg mb-8 leading-relaxed">
-              Crafting beautiful, functional web experiences. Specialized in Full Stack development, AI/ML solutions, and data analysis.
-            </p>
-            <div className="flex gap-6 mb-8">
-  <a
-    href="https://github.com/Muh-Aqib-Shah"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-  >
-    <Github className="w-5 h-5 opacity-40 hover:opacity-100 cursor-pointer transition-opacity" />
-  </a>
+      <section className="relative pt-24 lg:pt-32 pb-12 px-6 max-w-7xl mx-auto min-h-[auto] lg:min-h-[85vh] flex items-center">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
 
-  <a
-    href="https://linkedin.com/in/aqib-shah-io"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-  >
-    <Linkedin className="w-5 h-5 opacity-40 hover:opacity-100 cursor-pointer text-blue-400 transition-opacity" />
-  </a>
+    {/* LEFT: TEXT */}
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <RotatingTitle />
 
-  <a
-    href="mailto:aqibshah1310@gmail.com"
-    aria-label="Email"
-  >
-    <Mail className="w-5 h-5 opacity-40 hover:opacity-100 cursor-pointer text-red-400 transition-opacity" />
-  </a>
+      <p className="text-lg text-slate-400 max-w-lg mb-8 leading-relaxed">
+        Crafting beautiful, functional web experiences. Specialized in Full Stack
+        development, AI/ML solutions, and data analysis.
+      </p>
 
-  <a
-    href="https://www.facebook.com/profile.php?id=100008765347390"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-  >
-    <Facebook className="w-5 h-5 opacity-40 hover:opacity-100 cursor-pointer text-blue-600 transition-opacity" />
-  </a>
-</div>
+      {/* SOCIALS */}
+      <div className="flex gap-6 mb-8">
+        <a
+          href="https://github.com/Muh-Aqib-Shah"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <Github className="w-5 h-5 opacity-40 hover:opacity-100 transition-opacity" />
+        </a>
 
-            <div className="flex flex-wrap gap-4">
-              <a href="#contact">
-              <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform uppercase italic">Contact Me</button>
-              </a>
-              <a href="https://drive.google.com/uc?export=download&id=1UmlCaUAjecXN880yKrpF2gjgL9QNryX9" download>
-              <button className="px-8 py-3 border border-white/10 rounded-full font-bold hover:bg-white/5 transition-colors uppercase italic">
-              Download Resume </button>
-              </a> 
-            </div>
-          </motion.div>
-          <div className="hidden lg:flex justify-center items-center relative">
-            <div className="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full" />
-            {isLoaded && <Lottie animationData={lottieJson} loop={true} className="w-[400px] h-[400px]"/>}
-          </div>
-        </div>
-      </section>
+        <a
+          href="https://linkedin.com/in/aqib-shah-io"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <Linkedin className="w-5 h-5 text-blue-400 opacity-40 hover:opacity-100 transition-opacity" />
+        </a>
+
+        <a href="mailto:aqibshah1310@gmail.com" aria-label="Email">
+          <Mail className="w-5 h-5 text-red-400 opacity-40 hover:opacity-100 transition-opacity" />
+        </a>
+
+        <a
+          href="https://www.facebook.com/profile.php?id=100008765347390"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <Facebook className="w-5 h-5 text-blue-600 opacity-40 hover:opacity-100 transition-opacity" />
+        </a>
+      </div>
+
+      {/* CTA BUTTONS */}
+      <div className="flex flex-wrap gap-4">
+        <a href="#contact">
+          <button className="px-8 py-3 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform uppercase italic">
+            Contact Me
+          </button>
+        </a>
+
+        <a
+          href="https://drive.google.com/uc?export=download&id=1UmlCaUAjecXN880yKrpF2gjgL9QNryX9"
+          download
+        >
+          <button className="px-8 py-3 border border-white/10 rounded-full font-bold hover:bg-white/5 transition-colors uppercase italic">
+            Download Resume
+          </button>
+        </a>
+      </div>
+    </motion.div>
+
+    {/* RIGHT: LOTTIE (VISIBLE ON MOBILE) */}
+    <div className="flex justify-center items-center relative mt-12 lg:mt-0">
+      <div className="absolute inset-0 bg-purple-500/10 blur-[80px] rounded-full" />
+      {isLoaded && (
+        <Lottie
+          animationData={lottieJson}
+          loop
+          className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[400px] lg:h-[400px]"
+        />
+      )}
+    </div>
+
+  </div>
+</section>
+
 
       {/* --- NEW: ABOUT SECTION --- */}
-      <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Visual Side */}
-            <div className="  flex items-center justify-center overflow-hidden">
-              {isLoaded && <Lottie animationData={aboutLottie} loop={true} className="w-[400px] h-[400px]"/>}
-            </div>
+    <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Text Side */}
-          <div className="order-1 lg:order-2">
-            <span className="text-[10px] font-mono tracking-[0.4em] text-purple-500 uppercase mb-4 block font-bold">About</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight italic uppercase">Engineering with Purpose.</h2>
-            <div className="space-y-6 text-slate-400 text-lg leading-relaxed font-medium">
-              <p>
-                I'm a versatile software engineer with expertise spanning full stack development, AI/ML engineering, and data analysis. With over 5 years of experience, I blend technical excellence with creative problem-solving to deliver impactful solutions.
-              </p>
-              <p>
-                My journey began with curiosity about how technology shapes our world. I've since built applications used by thousands, trained machine learning models that drive insights, and analyzed data to uncover hidden patterns.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    {/* LOTTIE */}
+    <div className="order-2 lg:order-1 flex items-center justify-center overflow-hidden mt-12 lg:mt-0 relative">
+      <div className="absolute inset-0  rounded-full" />
+
+      {isLoaded && (
+        <Lottie
+          animationData={aboutLottie}
+          loop
+          className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[400px] lg:h-[400px]"
+        />
+      )}
+    </div>
+
+    {/* TEXT */}
+    <div className="order-1 lg:order-2">
+      <span className="text-[10px] font-mono tracking-[0.4em] text-purple-500 uppercase mb-4 block font-bold">
+        About
+      </span>
+
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight italic uppercase">
+        Engineering with Purpose.
+      </h2>
+
+      <div className="space-y-6 text-slate-400 text-lg leading-relaxed font-medium">
+        <p>
+          I'm a versatile software engineer with expertise spanning full stack
+          development, AI/ML engineering, and data analysis. With over 5 years of
+          experience, I blend technical excellence with creative
+          problem-solving to deliver impactful solutions.
+        </p>
+
+        <p>
+          My journey began with curiosity about how technology shapes our world.
+          I've since built applications used by thousands, trained machine
+          learning models that drive insights, and analyzed data to uncover
+          hidden patterns.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 
       {/* --- SKILLS SECTION --- */}
       <section id="skills" className="py-20 px-6 max-w-7xl mx-auto">
