@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Github, Linkedin, Mail, Facebook, 
   Terminal, Globe, Cpu, CloudSun, ArrowUpRight,
-  Send, MessageCircle
+  Send, MessageCircle, ShoppingBag, MessagesSquare
 } from 'lucide-react';
 import Lottie from 'lottie-react';
 import lottieJson from "./assets/animation.json";
@@ -118,7 +118,25 @@ export default function PortfolioV3() {
       desc: "A social platform where users create curated travel itineraries, explore shared trips, and interact. Built with a unified Next.js frontend/backend and MySQL.",
       tech: ["Next.js", "TypeScript", "MySQL", "REST APIs"],
       icon: <Globe className="w-6 h-6 text-blue-400" />,
-      link: "https://github.com/Muh-Aqib-Shah/journeo"
+      link: "https://github.com/Muh-Aqib-Shah/journeo",
+      site: "https://journeo-murex.vercel.app/"
+    },
+    {
+      title: "IronInk — eCommerce Store",
+      tag: "Full Stack",
+      desc: "A high-end tattoo-inspired apparel store featuring a custom cart system, Redux state management, and a seamless checkout experience.",
+      tech: ["Next.js", "Redux Toolkit", "Tailwind CSS", "Vercel"],
+      icon: <ShoppingBag className="w-6 h-6 text-orange-400" />, 
+      link: "https://github.com/Muh-Aqib-Shah/IronInk-Store",
+      site: "https://iron-ink-store.vercel.app/"
+    },
+    {
+      title: "Conversify",
+      tag: "Full Stack",
+      desc: "Real-time messaging platform enabling instant peer-to-peer communication with persistent chat history and active user tracking.",
+      tech: ["React", "Node.js", "Socket.io", "Express"],
+      icon: <MessagesSquare className="w-6 h-6 text-indigo-400" />,
+      link: "https://github.com/Muh-Aqib-Shah/conversify" 
     },
     {
       title: "Air Quality Forecasting System",
@@ -330,9 +348,16 @@ export default function PortfolioV3() {
               <div className="bg-[#0a0a0a] rounded-[38px] p-8 h-full flex flex-col">
                 <div className="flex justify-between items-start mb-6">
                   <div className="p-3 bg-white/5 rounded-2xl">{project.icon}</div>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                  <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                  </a>
+                  <div className="space-x-2 flex">
+                    { project?.site && <a href={project.site} target="_blank" rel="noopener noreferrer">
+                      <Globe className="opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </a>
+                    }
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ArrowUpRight className="opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </a>
+                  </div>
+                  
                 </div>
                 <h4 className="text-[10px] font-mono text-purple-400/60 uppercase tracking-widest mb-2 font-bold italic">{project.tag}</h4>
                 <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">{project.title}</h3>
